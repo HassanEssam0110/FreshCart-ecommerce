@@ -1,0 +1,16 @@
+.order-details .inner-box {
+  border: 1px solid rgba(10, 173, 10, 0.3);
+}
+.order-details .inner-box img {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  object-fit: cover;
+}
+
+@media screen and (max-width: 760px) {
+  .order-details .inner-box .inner-box-right,
+  .order-details .inner-box .inner-box-left {
+    width: 50%;
+    max-width: 50%;
+    text-align: center;
+  }
+}
