@@ -60,7 +60,7 @@ export default function Address() {
       if (data?.status === "success") {
         setCartCounter(0);
         toast.success("you order successfully");
-        navigate("/home");
+        navigate("/allorders");
       } else {
         setErrorMsg("error occurred while creating order.");
       }
