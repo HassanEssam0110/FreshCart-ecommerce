@@ -37,6 +37,10 @@ export default function ProductDetails({ productId, setCategoryId }) {
   // }, []);
 
   useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
     getProductDetails();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [productId]);

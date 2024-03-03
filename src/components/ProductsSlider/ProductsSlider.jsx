@@ -30,7 +30,7 @@ export default function ProductsSlider({ categoryId }) {
   }, [categoryId]);
 
   let settings = {
-    dots: true,
+    dots: false,
     lazyLoad: true,
     infinite: true,
     speed: 500,
@@ -73,7 +73,7 @@ export default function ProductsSlider({ categoryId }) {
   return (
     <>
       {productsList.length > 0 ? (
-        <div className="container py-5 my-5 bg-light rounded-2">
+        <div className="container py-5 mt-5 bg-light rounded-2">
           <h2 className="h3">Other products you may like</h2>
           <Slider {...settings}>
             {productsList.map((item) => (
