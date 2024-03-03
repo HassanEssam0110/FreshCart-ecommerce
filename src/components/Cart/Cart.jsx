@@ -86,7 +86,7 @@ export default function Cart() {
               <i className="fa-solid fa-store"></i> Check Out
             </Link>
             <button className="btn btn-danger" onClick={clearUserCart}>
-              <i className="fa-solid fa-ban"></i> Clear Cart
+              Clear Cart
             </button>
           </div>
         </div>

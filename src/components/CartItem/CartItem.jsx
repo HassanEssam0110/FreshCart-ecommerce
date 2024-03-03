@@ -34,7 +34,7 @@ export default function CartItem({ item, setCartDetails }) {
 
   return (
     <div className="cartItem row align-items-center py-2 border-bottom">
-      <div className="col-5 col-sm-2 mx-auto mb-2 mb-md-0">
+      <div className="col-5 col-md-2 mx-auto mb-2 mb-md-0">
         <img
           src={item.product.imageCover}
           alt={item.product.title}
@@ -42,7 +42,7 @@ export default function CartItem({ item, setCartDetails }) {
         />
       </div>
 
-      <div className="col-sm-10 d-flex justify-content-between ">
+      <div className="col-12 col-md-10 d-flex justify-content-between ">
         <div>
           <h6 className="title-main fw-bold mb-0">
             {item.product.title.split(" ").splice(0, 3).join(" ")}
@@ -81,7 +81,7 @@ export default function CartItem({ item, setCartDetails }) {
             >
               <i className="fa-solid fa-plus"></i>
             </button>
-            <span className="title-main mx-3 text-center py-1 fw-semibold">
+            <span className="title-main mx-2   mx-md-3 text-center py-1 fw-semibold">
               {item.count}
             </span>
             <button

@@ -6,11 +6,9 @@
   object-fit: cover;
 }
 
-@media screen and (max-width: 760px) {
-  .order-details .inner-box .inner-box-right,
+@media screen and (min-width: 760px) {
   .order-details .inner-box .inner-box-left {
-    width: 50%;
-    max-width: 50%;
-    text-align: center;
+    width: 75%;
+    max-width: 75%;
   }
 }

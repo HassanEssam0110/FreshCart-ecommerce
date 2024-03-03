@@ -110,35 +110,36 @@ export default function OrderDetails() {
               <p>
                 <span className="fw-bold">Items: </span>
               </p>
-              <div className="row g-2">
-                {order?.cartItems.map((el, index) => (
-                  <div key={index} className="col-12">
-                    <div className="inner-box rounded-2 p-2 d-flex  align-items-center bg-main-light">
-                      <div className="inner-box-left d-md-flex align-items-center">
-                        <img
-                          src={el.product.imageCover}
-                          alt={el.product.title}
-                          className=" me-2 rounded-circle "
-                          width={60}
-                          height={60}
-                          loading="lazy"
-                        />
-                        <h6 className="title-main fw-semibold mt-2 mt-md-0">
-                          {el.product.title}
-                        </h6>
-                      </div>
-                      <div className="inner-box-right ms-md-auto">
-                        <p className="mb-1 font-sm fw-semibold ">
-                          price: {el.price} EGP
-                        </p>
-                        <p className="mb-1 font-sm fw-semibold">
-                          Count: {el.count}
-                        </p>
-                      </div>
-                    </div>
+              {order?.cartItems.map((el, index) => (
+                <div
+                  key={index}
+                  className="row mb-3 p-3 justify-content-center  align-items-center border-bottom"
+                >
+                  <div className="col-md-2">
+                    <img
+                      src={el.product.imageCover}
+                      alt={el.product.title}
+                      className=" me-3 rounded-2 "
+                      width={60}
+                      height={60}
+                      loading="lazy"
+                    />
                   </div>
-                ))}
-              </div>
+                  <div className="col-md-6">
+                    <h6 className="title-main font-sm  fw-semibold mt-2 mt-md-0">
+                      {el.product.title}
+                    </h6>
+                  </div>
+                  <div className="col-md-4 text-center">
+                    <p className="mb-1 font-sm fw-semibold ">
+                      price: {el.price} EGP
+                    </p>
+                    <p className="mb-1 font-sm fw-semibold">
+                      Count: {el.count}
+                    </p>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </div>
