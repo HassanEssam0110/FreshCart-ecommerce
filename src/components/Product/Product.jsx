@@ -6,7 +6,7 @@ import { wishlistContext } from "../../Context/WishlistContext";
 import "./Product.css";
 import ModalImages from "../ModalImages/ModalImages";
 
-export default function Product({ item }) {
+export default function Product({ item, inSlid = false }) {
   const { setCartCounter, addToCart } = useContext(cartContext);
   const {
     wishlistProductsId,
@@ -51,7 +51,7 @@ export default function Product({ item }) {
   }
 
   return (
-    <div className="col-6 col-sm-4 col-md-3 col-lg-2 ">
+    <div className={inSlid ? "w-100" : "col-6 col-sm-4 col-md-3 col-lg-2 "}>
       <div className="product cursor-pointer rounded-3 p-2 overflow-hidden position-relative">
         <Link to={`/product-details/${item.slug}/${item._id}`}>
           <img
@@ -92,52 +92,54 @@ export default function Product({ item }) {
             </>
           )}
         </button>
+        {inSlid ? null : (
+          <div className="overlay">
+            {wishlistProductsId?.includes(item._id) ? (
+              // Item is found in the wishlist
+              <button
+                className="btn btn-wishlist px-2 py-1 rounded-1 position-absolute"
+                onClick={() => removeProductFromWishlist(item._id)}
+              >
+                {isLoadingWishlist ? (
+                  <span
+                    className="spinner-border spinner-border-sm "
+                    role="status"
+                    aria-hidden="true"
+                  ></span>
+                ) : (
+                  <i className="fa-solid fa-heart"></i>
+                )}
+              </button>
+            ) : (
+              // Item is not found in the wishlist
+              <button
+                className="btn btn-wishlist px-2 py-1 rounded-1 position-absolute"
+                onClick={() => addProductToWishlist(item._id)}
+              >
+                {isLoadingWishlist ? (
+                  <span
+                    className="spinner-border spinner-border-sm "
+                    role="status"
+                    aria-hidden="true"
+                  ></span>
+                ) : (
+                  <i className="fa-regular fa-heart"></i>
+                )}
+              </button>
+            )}
 
-        <div className="overlay">
-          {wishlistProductsId?.includes(item._id) ? (
-            // Item is found in the wishlist
+            {/* Button to open modal */}
             <button
-              className="btn btn-wishlist px-2 py-1 rounded-1 position-absolute"
-              onClick={() => removeProductFromWishlist(item._id)}
+              type="button"
+              className="btn btn-view px-2 py-1 rounded-1 position-absolute mt-5"
+              data-bs-toggle="modal"
+              data-bs-target={`#modal${item._id}`}
             >
-              {isLoadingWishlist ? (
-                <span
-                  className="spinner-border spinner-border-sm "
-                  role="status"
-                  aria-hidden="true"
-                ></span>
-              ) : (
-                <i className="fa-solid fa-heart"></i>
-              )}
+              <i className="fa-regular fa-image"></i>
             </button>
-          ) : (
-            // Item is not found in the wishlist
-            <button
-              className="btn btn-wishlist px-2 py-1 rounded-1 position-absolute"
-              onClick={() => addProductToWishlist(item._id)}
-            >
-              {isLoadingWishlist ? (
-                <span
-                  className="spinner-border spinner-border-sm "
-                  role="status"
-                  aria-hidden="true"
-                ></span>
-              ) : (
-                <i className="fa-regular fa-heart"></i>
-              )}
-            </button>
-          )}
+          </div>
+        )}
 
-          {/* Button to open modal */}
-          <button
-            type="button"
-            className="btn btn-view px-2 py-1 rounded-1 position-absolute mt-5"
-            data-bs-toggle="modal"
-            data-bs-target={`#modal${item._id}`}
-          >
-            <i className="fa-regular fa-image"></i>
-          </button>
-        </div>
         {/* Modal component */}
         <ModalImages
           item={item}

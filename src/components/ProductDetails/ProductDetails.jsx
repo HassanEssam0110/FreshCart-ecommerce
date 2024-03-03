@@ -1,6 +1,5 @@
 import axios from "axios";
 import React, { useContext, useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
 import Loading from "../Loading/Loading";
 import { baseUrl } from "../../utils/baseUrl";
 import { cartContext } from "./../../Context/CartContext";
@@ -8,16 +7,17 @@ import { toast } from "react-toastify";
 import Slider from "react-slick";
 import { Helmet } from "react-helmet";
 
-export default function ProductDetails() {
-  let { id } = useParams();
+export default function ProductDetails({ productId, setCategoryId }) {
   const [product, setProduct] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [isLoadingAdd, setIsLoadingAdd] = useState(false);
   let { setCartCounter, addToCart } = useContext(cartContext);
 
   async function getProductDetails() {
-    let { data } = await axios.get(`${baseUrl}/products/${id}`);
+    setIsLoading(true);
+    let { data } = await axios.get(`${baseUrl}/products/${productId}`);
     setProduct(data.data);
+    setCategoryId(data.data.category._id);
     setIsLoading(false);
   }
 
@@ -31,10 +31,15 @@ export default function ProductDetails() {
     }
   }
 
+  // useEffect(() => {
+  //   getProductDetails();
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, []);
+
   useEffect(() => {
     getProductDetails();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [productId]);
 
   let settings = {
     dots: true,
@@ -54,40 +59,37 @@ export default function ProductDetails() {
         <title>{product.title}</title>
         <meta name="keywords" content={product.slug} />
       </Helmet>
-      <div className="my-5 py-5 d-flex justify-content-center align-items-center ">
-        <div className="container">
-          <div className="row justify-content-center align-items-center">
-            <div className="col-md-4 mb-4 mb-md-0">
+
+      <div className="my-5 pt-5 d-flex justify-content-center align-items-center ">
+        <div className="container pt-5">
+          <div className="row justify-content-center align-items-center mb-5">
+            <div className="col-md-4 mb-5 mb-md-0">
               <Slider {...settings}>
-                {product.images.map((img, index) => (
-                  // <div key={index}>{img}</div>
+                {product?.images?.map((img, index) => (
                   <img
                     key={index}
                     src={img}
-                    alt={product.name}
-                    className="d-block w-100"
-                    // className="d-block mx-auto rounded-2 object-fit-cover"
-                    // className="d-block w-100"
-                    // height={300}
+                    alt={product?.name}
+                    className="d-block w-100 rounded-2"
                   />
                 ))}
               </Slider>
             </div>
 
             <div className="col-md-8">
-              <h4 className="fw-bold title-main">{product.title}</h4>
-              <p className="text-color ">{product.description}</p>
-              <p className="fs-6 my-1 text-main">{product.category.name}</p>
+              <h4 className="fw-bold title-main">{product?.title}</h4>
+              <p className="text-color ">{product?.description}</p>
+              <p className="fs-6 my-1 text-main">{product?.category?.name}</p>
               <div className="d-flex justify-content-between my-3">
-                <div>{product.price} EGP</div>
+                <div>{product?.price} EGP</div>
                 <div>
                   <i className="fa-solid fa-star rating-color"></i>
-                  {product.ratingsAverage}
+                  {product?.ratingsAverage}
                 </div>
               </div>
               <button
                 className="btn bg-main text-white w-100 font-sm"
-                onClick={() => addProductToCart(product._id)}
+                onClick={() => addProductToCart(product?._id)}
                 disabled={isLoadingAdd ? true : false}
               >
                 {isLoadingAdd ? (

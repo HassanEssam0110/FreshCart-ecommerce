@@ -27,6 +27,7 @@ export default function ProductsByCategory() {
       setIsLoading(false);
     }
   }
+  
   useEffect(() => {
     getProductsByCategoryId();
   }, []);

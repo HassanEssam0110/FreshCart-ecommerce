@@ -19,13 +19,13 @@ import ResetPassword from "./components/Auth/ResetPassword/ResetPassword";
 import ProtectedRoutes from "./ProtectedRoutes/ProtectedRoutes";
 import { tokenContext } from "./Context/TokenContext";
 import ProtectedAuth from "./ProtectedAuth/ProtectedAuth";
-import ProductDetails from "./components/ProductDetails/ProductDetails";
 import { ToastContainer } from "react-toastify";
 import Address from "./components/Address/Address";
 import Allorders from "./components/Allorders/Allorders";
 import ProductsByCategory from "./components/ProductsByCategory/ProductsByCategory";
 import ProductsByBrand from "./components/ProductsByBrand/ProductsByBrand";
 import OrderDetails from "./components/OrderDetails/OrderDetails";
+import ProductDetailsPage from "./components/ProductDetailsPage/ProductDetailsPage";
 
 export default function App() {
   let { setToken } = useContext(tokenContext);
@@ -86,7 +86,7 @@ export default function App() {
           path: "product-details/:slug/:id",
           element: (
             <ProtectedRoutes>
-              <ProductDetails />
+              <ProductDetailsPage />
             </ProtectedRoutes>
           ),
         },

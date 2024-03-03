@@ -61,7 +61,7 @@ export default function Footer() {
         <section>
           <div className="container text-start mt-5">
             <div className="row p-3">
-              <div className="col-sm-6  col-lg-3 col-xl-3 mx-auto mb-4">
+              <div className="col-sm-6  col-lg-3  mx-auto mb-4">
                 <h6 className="text-uppercase fw-bold">Fresh Cart</h6>
                 <hr
                   className="mb-4 mt-0 d-inline-block mx-auto"
@@ -73,7 +73,7 @@ export default function Footer() {
                 </p>
               </div>
 
-              <div className="col-sm-6 col-lg-2 col-xl-2 mx-auto mb-4">
+              <div className="col-sm-6 col-lg-2  mx-auto mb-4">
                 <h6 className="text-uppercase fw-bold">Useful links</h6>
                 <hr
                   className="mb-4 mt-0 d-inline-block mx-auto"
@@ -127,7 +127,7 @@ export default function Footer() {
                   </li>
                 </ul>
               </div>
-              <div className="col-sm-6  col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+              <div className="col-sm-6  col-lg-3 mx-auto mb-md-0 mb-4">
                 <h6 className="text-uppercase fw-bold">Contact</h6>
                 <hr
                   className="mb-4 mt-0 d-inline-block mx-auto"
@@ -146,7 +146,7 @@ export default function Footer() {
                   <i className="fas fa-print me-3" /> + 01 234 567 89
                 </p>
               </div>
-              <div className="col-sm-6  col-lg-4 col-xl-2 mx-auto mb-4">
+              <div className="col-sm-6  col-lg-4 mx-auto mb-4">
                 <h6 className="text-uppercase fw-bold">get app</h6>
                 <hr
                   className="mb-4 mt-0 d-inline-block mx-auto"
@@ -157,8 +157,8 @@ export default function Footer() {
                   app.
                 </p>
                 <form className="my-4">
-                  <div className="row g-2 justify-content-center align-items-center">
-                    <div className="col-7 col-sm-12 ">
+                  <div className="row  justify-content-center align-items-center">
+                    <div className="col-12 col-md-8 pe-md-1 mb-1 mb-md-0  ">
                       <input
                         type="text"
                         className="form-control"
@@ -166,12 +166,12 @@ export default function Footer() {
                         placeholder="Email .."
                       />
                     </div>
-                    <div className="col-5 col-sm-12 ">
+                    <div className="col-12 col-md-4  ps-md-0">
                       <button
                         type="button"
-                        className="btn bg-main px-2 py-1 mx-auto d-block text-white w-100"
+                        className="btn bg-main  px-2 py-1 mx-auto d-block text-white w-100"
                       >
-                        Share App Link
+                        Send
                       </button>
                     </div>
                   </div>
