@@ -20,3 +20,7 @@
 .nav-item {
   width: fit-content;
 }
+
+.nav-link:focus-visible {
+  box-shadow: none;
+}

@@ -19,6 +19,11 @@
 :focus-visible {
   outline: none;
 }
+.form-select:focus {
+  border-color: var(--main-color);
+  box-shadow: none;
+}
+
 ::selection {
   color: var(--light-color);
   background: var(--main-color);
