@@ -17,7 +17,6 @@ export default function Pagination({
   }, [paginationData]);
 
   function getNextPage() {
-    console.log("next", currentPage);
     if (paginationData.nextPage != null) {
       setCurrentPage(paginationData.nextPage);
       getProducts(limitItems, paginationData.nextPage);
@@ -25,7 +24,6 @@ export default function Pagination({
   }
 
   function getPrevPage() {
-    console.log("pre v", currentPage);
     if (paginationData.prevPage != null) {
       setCurrentPage(paginationData.prevPage);
       getProducts(limitItems, paginationData.prevPage);
@@ -33,7 +31,7 @@ export default function Pagination({
   }
 
   return (
-    <div className="d-flex justify-content-center my-2">
+    <div className="d-flex justify-content-center mt-5 mb-2">
       <nav aria-label="...">
         <ul className="pagination ">
           <li className={`page-item ${currentPage === 1 && "disabled"}`}>

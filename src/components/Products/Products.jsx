@@ -35,7 +35,6 @@ export default function Products() {
     }
   }
 
-
   // let { data, isLoading } = useQuery("getProducts", getProducts);
 
   function handleLimitItemsShow(num) {
@@ -52,7 +51,7 @@ export default function Products() {
     getProducts(limitItems, 1);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-  
+
   return (
     <>
       <Helmet>
@@ -66,12 +65,12 @@ export default function Products() {
           <select
             name=""
             className="form-select w-25"
-            // value={limitItems}
+            value={limitItems}
             onChange={(e) => {
               handleLimitItemsShow(e.target.value);
             }}
           >
-            <option disabled value="" selected>
+            <option disabled value="">
               items
             </option>
             <option value="6">6</option>

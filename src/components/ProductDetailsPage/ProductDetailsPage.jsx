@@ -9,7 +9,10 @@ export default function ProductDetailsPage() {
   return (
     <>
       <ProductDetails setCategoryId={setCategoryId} productId={id} />
-      <ProductsSlider categoryId={categoryId} />
+      <ProductsSlider
+        categoryId={categoryId}
+        title={"Other products you may like"}
+      />
     </>
   );
 }

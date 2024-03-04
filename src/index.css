@@ -56,6 +56,9 @@ a:hover {
 .bg-main {
   background-color: var(--main-color) !important;
 }
+.bg-main-dark {
+  background-color: var(--text-color-main) !important;
+}
 .bg-main-alt {
   background-color: var(--main-color-alt) !important;
 }

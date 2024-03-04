@@ -10,7 +10,7 @@ export default function Footer() {
   return (
     <>
       <footer className="bg-main-light">
-        <section className="bg-main  border-bottom">
+        <section className="bg-main-dark  border-bottom">
           <div className="container py-3 ">
             <div className="row justify-content-center align-items-center">
               <div className="col-md-9 col-lg-8 mb-2 mb-md-0  text-center text-md-start">

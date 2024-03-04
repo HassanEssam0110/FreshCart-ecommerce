@@ -6,7 +6,7 @@ import { baseUrl } from "../../utils/baseUrl";
 import Loading from "../Loading/Loading";
 import Product from "../Product/Product";
 
-export default function ProductsSlider({ categoryId }) {
+export default function ProductsSlider({ categoryId, title }) {
   const [isLoading, setIsLoading] = useState(true);
   const [productsList, setProductsList] = useState([]);
 
@@ -73,15 +73,17 @@ export default function ProductsSlider({ categoryId }) {
   return (
     <>
       {productsList.length > 0 ? (
-        <div className="container py-5 mt-5 bg-light rounded-2">
-          <h2 className="h3">Other products you may like</h2>
-          <Slider {...settings}>
-            {productsList.map((item) => (
-              <div key={item._id} className="px-3">
-                <Product inSlid="true" item={item} />
-              </div>
-            ))}
-          </Slider>
+        <div className="bg-light">
+          <div className="container py-5 mt-5">
+            <h2 className="h3">{title}</h2>
+            <Slider {...settings}>
+              {productsList.map((item) => (
+                <div key={item._id} className="px-3">
+                  <Product inSlid="true" item={item} />
+                </div>
+              ))}
+            </Slider>
+          </div>
         </div>
       ) : null}
     </>
