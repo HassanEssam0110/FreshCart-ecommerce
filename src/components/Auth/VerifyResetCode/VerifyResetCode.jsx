@@ -12,7 +12,7 @@ export default function VerifyResetCode() {
   let navigate = useNavigate();
 
   const verifyResetCodeSchema = Yup.object({
-    resetCode: Yup.string().length(6).required("resetCode is required"),
+    resetCode: Yup.string().required("resetCode is required"),
   });
 
   let formik = useFormik({
@@ -37,7 +37,7 @@ export default function VerifyResetCode() {
         console.log(data);
 
         if (data.data.status === "Success") {
-          navigate("/reset-password");
+          navigate("/auth/reset-password");
         }
       })
       .catch((error) => {

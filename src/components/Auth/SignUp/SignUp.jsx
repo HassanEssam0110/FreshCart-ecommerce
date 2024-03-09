@@ -59,7 +59,7 @@ export default function SignUp() {
       .then((data) => {
         setIsloading(false);
         if (data.data.message === "success") {
-          navigate("/signin");
+          navigate("/auth/signin");
         }
       })
       .catch((error) => {
@@ -233,7 +233,7 @@ export default function SignUp() {
 
                 <p className="my-4 text-center">
                   Already have an account?
-                  <Link to="/signin" className="text-main ms-1 fw-bold">
+                  <Link to="/auth/signin" className="text-main ms-1 fw-bold">
                     Login
                   </Link>
                 </p>

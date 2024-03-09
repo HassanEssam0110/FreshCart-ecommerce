@@ -35,7 +35,7 @@ export default function Navbar() {
   function logOut() {
     localStorage.clear();
     setToken(null);
-    navigate("/signin");
+    navigate("/auth/signin");
   }
 
   useEffect(() => {
@@ -218,7 +218,7 @@ export default function Navbar() {
                 <li className="nav-item">
                   <NavLink
                     className="nav-link"
-                    to="/signin"
+                    to="/auth/signin"
                     onClick={handleNavLinkClick}
                   >
                     signIn
@@ -227,7 +227,7 @@ export default function Navbar() {
                 <li className="nav-item">
                   <NavLink
                     className="nav-link"
-                    to="/signup"
+                    to="/auth/signup"
                     onClick={handleNavLinkClick}
                   >
                     signUp

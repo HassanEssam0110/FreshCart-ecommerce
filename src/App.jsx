@@ -153,9 +153,17 @@ export default function App() {
       ],
     },
     {
-      path: "/",
+      path: "/auth",
       element: <AuthLayout />,
       children: [
+        {
+          index: true,
+          element: (
+            <ProtectedAuth>
+              <SignIn />
+            </ProtectedAuth>
+          ),
+        },
         {
           path: "signin",
           element: (

@@ -164,7 +164,7 @@ export default function SignIn() {
                 <p className="mb-3 font-sm ">
                   Forgot your password?
                   <Link
-                    to="/forgot-password"
+                    to="/auth/forgot-password"
                     className="text-main ms-1 fw-bold "
                   >
                     Reset it here
@@ -201,7 +201,7 @@ export default function SignIn() {
                 )}
                 <p className=" my-4 text-center">
                   Don't have an account yet?
-                  <Link to="/signup" className="text-main ms-1 fw-bold">
+                  <Link to="/auth/signup" className="text-main ms-1 fw-bold">
                     Signup
                   </Link>
                 </p>

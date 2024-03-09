@@ -7,7 +7,7 @@ export default function ProtectedRoutes({ children }) {
   let { setToken } = useContext(tokenContext);
   let token = localStorage.getItem("token");
 
-  if (!token) return <Navigate to="/signin" />;
+  if (!token) return <Navigate to="/auth/signin" />;
 
   try {
     const decoded = jwtDecode(token);
@@ -15,6 +15,6 @@ export default function ProtectedRoutes({ children }) {
   } catch (err) {
     localStorage.clear();
     setToken(null);
-    return <Navigate to="/signin" />;
+    return <Navigate to="/auth/signin" />;
   }
 }

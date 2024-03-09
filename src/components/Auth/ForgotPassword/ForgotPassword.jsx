@@ -37,7 +37,7 @@ export default function ForgotPassword() {
         setIsloading(false);
         console.log(data);
         if (data.data.statusMsg === "success") {
-          navigate("/verify-reset-code");
+          navigate("/auth/verify-reset-code");
         }
       })
       .catch((error) => {
