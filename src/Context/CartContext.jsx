@@ -84,7 +84,7 @@ async function payByCash(cartId, shippingAddress) {
 async function payByCreditCard(cartId, shippingAddress) {
   return axios
     .post(
-      `${baseUrl}/orders/checkout-session/${cartId}`,
+      `${baseUrl}/orders/checkout-session/${cartId}?url=${window.location.href}`,
       { shippingAddress },
       {
         headers: {
